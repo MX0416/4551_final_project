@@ -52,15 +52,15 @@ class GestureRecognitionNode(Node):
         count = sum(fingers_up)
 
         if count == 0 and not thumb_up:
-            return 'FORWARD'        # fist ✊
+            return 'FORWARD'        # fist
         elif count == 4:
-            return 'STOP'           # open palm 🖐
+            return 'STOP'           # open palm
         elif fingers_up[0] and not any(fingers_up[1:]):
             return 'TURN_LEFT'      # index only ☝️
         elif fingers_up[0] and fingers_up[1] and not any(fingers_up[2:]):
-            return 'TURN_RIGHT'     # peace ✌️
+            return 'TURN_RIGHT'     # 2 fingers
         elif thumb_up and not any(fingers_up):
-            return 'SPAWN_TB2'      # thumbs up 👍
+            return 'SPAWN_TB2'      # thumbs up
         else:
             return 'STOP'
 
