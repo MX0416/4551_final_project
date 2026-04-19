@@ -9,3 +9,37 @@ ros2 launch slam_toolbox online_async_launch.py
 
 # start rviz for visualization of SLAM
 ros2 launch nav2_bringup rviz_launch.py
+
+# build project
+colcon build --packages-select gesture_turtlebot
+
+# run project
+source install/setup.bash
+ros2 run gesture_turtlebot gesture_recognition
+
+
+
+
+# Running the project
+# Terminal 1
+source /opt/ros/jazzy/setup.bash
+source install/setup.bash
+ros2 launch  turtlebot3_gazebo turtlebot3_house.launch.py 
+
+# Terminal 2
+ros2 launch slam_toolbox online_async_launch.py
+
+# Terminal 3
+ros2 launch nav2_bringup rviz_launch.py
+
+# Terminal 4
+colcon build --packages-select gesture_turtlebot
+source install/setup.bash
+ros2 run gesture_turtlebot gesture_recognition
+
+# Terminal 5
+source install/setup.bash
+ros2 run gesture_turtlebot gesture_to_cmd
+
+# Terminal 6 (Won't need teleop once guestures are working)
+ros2 run turtlebot3_teleop teleop_keyboard

@@ -10,6 +10,7 @@ setup.py
 ../../build/gesture_turtlebot/gesture_turtlebot.egg-info/zip-safe
 gesture_turtlebot/__init__.py
 gesture_turtlebot/gesture_recognition.py
+gesture_turtlebot/guesture_to_cmd.py
 resource/gesture_turtlebot
 test/test_copyright.py
 test/test_flake8.py
