@@ -1,7 +1,7 @@
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
-from geometry_msgs.msg import Twist
+from geometry_msgs.msg import TwistStamped
 
 class GestureToCmdNode(Node):
     def __init__(self):
@@ -12,24 +12,29 @@ class GestureToCmdNode(Node):
             self.gesture_callback,
             10
         )
-        self.publisher = self.create_publisher(Twist, '/cmd_vel', 10)
+        self.publisher = self.create_publisher(TwistStamped, '/cmd_vel', 10)
         self.get_logger().info('Gesture to cmd_vel node started')
 
     def gesture_callback(self, msg):
-        twist = Twist()
+        twist = TwistStamped()
+        twist.header.stamp = self.get_clock().now().to_msg()
+        twist.header.frame_id = 'base_link'
 
         if msg.data == 'FORWARD':
-            twist.linear.x = 0.2
-            twist.angular.z = 0.0
+            twist.twist.linear.x = 0.2
+            twist.twist.angular.z = 0.0
         elif msg.data == 'STOP':
-            twist.linear.x = 0.0
-            twist.angular.z = 0.0
+            twist.twist.linear.x = 0.0
+            twist.twist.angular.z = 0.0
         elif msg.data == 'TURN_LEFT':
-            twist.linear.x = 0.0
-            twist.angular.z = 0.5
+            twist.twist.linear.x = 0.0
+            twist.twist.angular.z = 0.5
+        elif msg.data == 'TURN_RIGHT':
+            twist.twist.linear.x = 0.0
+            twist.twist.angular.z = -0.5
         elif msg.data == 'SPAWN_TB2':
-            twist.linear.x = 0.0
-            twist.angular.z = 0.0
+            twist.twist.linear.x = 0.0
+            twist.twist.angular.z = 0.0
 
         self.publisher.publish(twist)
 

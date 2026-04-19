@@ -46,16 +46,21 @@ class GestureRecognitionNode(Node):
         for tip, pip in [(8,6), (12,10), (16,14), (20,18)]:
             fingers_up.append(lm[tip].y < lm[pip].y)
 
+        # Thumb check — tip x < ip x for right hand (mirrored)
+        thumb_up = lm[4].x < lm[3].x
+
         count = sum(fingers_up)
 
-        if count == 0:
-            return 'FORWARD'
+        if count == 0 and not thumb_up:
+            return 'FORWARD'        # fist ✊
         elif count == 4:
-            return 'STOP'
+            return 'STOP'           # open palm 🖐
         elif fingers_up[0] and not any(fingers_up[1:]):
-            return 'TURN_LEFT'
+            return 'TURN_LEFT'      # index only ☝️
         elif fingers_up[0] and fingers_up[1] and not any(fingers_up[2:]):
-            return 'SPAWN_TB2'
+            return 'TURN_RIGHT'     # peace ✌️
+        elif thumb_up and not any(fingers_up):
+            return 'SPAWN_TB2'      # thumbs up 👍
         else:
             return 'STOP'
 
