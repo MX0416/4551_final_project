@@ -24,6 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'gesture_recognition = gesture_turtlebot.gesture_recognition:main',
         ],
     },
 )
