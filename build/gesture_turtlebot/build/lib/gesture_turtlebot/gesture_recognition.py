@@ -33,7 +33,7 @@ class GestureRecognitionNode(Node):
         options = HandLandmarkerOptions(
             base_options=python.BaseOptions(model_asset_path=model_path),
             running_mode=RunningMode.IMAGE,
-            num_hands=2,
+            num_hands=2,  
             min_hand_detection_confidence=0.7
         )
         self.landmarker = HandLandmarker.create_from_options(options)
@@ -46,21 +46,16 @@ class GestureRecognitionNode(Node):
         for tip, pip in [(8,6), (12,10), (16,14), (20,18)]:
             fingers_up.append(lm[tip].y < lm[pip].y)
 
-        # Thumb check — tip x < ip x for right hand (mirrored)
-        thumb_up = lm[4].x < lm[3].x
-
         count = sum(fingers_up)
 
-        if count == 0 and not thumb_up:
-            return 'FORWARD'        # fist ✊
+        if count == 0:
+            return 'FORWARD'        # fist
         elif count == 4:
-            return 'STOP'           # open palm 🖐
+            return 'STOP'           # open palm
         elif fingers_up[0] and not any(fingers_up[1:]):
-            return 'TURN_LEFT'      # index only ☝️
+            return 'TURN_LEFT'      # index only
         elif fingers_up[0] and fingers_up[1] and not any(fingers_up[2:]):
-            return 'TURN_RIGHT'     # peace ✌️
-        elif thumb_up and not any(fingers_up):
-            return 'SPAWN_TB2'      # thumbs up 👍
+            return 'TURN_RIGHT'     # peace sign
         else:
             return 'STOP'
 
@@ -76,15 +71,23 @@ class GestureRecognitionNode(Node):
         results = self.landmarker.detect(mp_image)
 
         gesture = 'STOP'
+        open_palm_count = 0
 
         if results.hand_landmarks and results.handedness:
             for hand_landmarks, handedness in zip(results.hand_landmarks, results.handedness):
-                # Right hand filter (mirrored — MediaPipe "Left" = your right)
                 label = handedness[0].category_name
+
+                # Check if this hand is an open palm
+                fingers_up = []
+                for tip, pip in [(8,6), (12,10), (16,14), (20,18)]:
+                    fingers_up.append(hand_landmarks[tip].y < hand_landmarks[pip].y)
+                if sum(fingers_up) == 4:
+                    open_palm_count += 1
+
+                # Only classify gesture from right hand (mirrored = 'Left')
                 if label == 'Left':
                     gesture = self.classify_gesture(hand_landmarks)
 
-                    # Draw landmarks manually
                     for lm in hand_landmarks:
                         h, w, _ = frame.shape
                         cx, cy = int(lm.x * w), int(lm.y * h)
@@ -92,6 +95,10 @@ class GestureRecognitionNode(Node):
 
                 cv2.putText(frame, f'Hand: {label}', (10, 80),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 0), 2)
+
+        # Override with SPAWN_TB2 only if both hands are open palms
+        if open_palm_count == 2:
+            gesture = 'SPAWN_TB2'
 
         msg = String()
         msg.data = gesture

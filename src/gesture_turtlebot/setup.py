@@ -25,7 +25,8 @@ setup(
     entry_points={
         'console_scripts': [
             'gesture_recognition = gesture_turtlebot.gesture_recognition:main',
-            'gesture_to_cmd = gesture_turtlebot.gesture_to_cmd:main',  # add this line
+            'gesture_to_cmd = gesture_turtlebot.gesture_to_cmd:main',
+            'spawn_controller = gesture_turtlebot.spawn_controller:main',  # add this
         ],
     },
 )

@@ -1,0 +1,45 @@
+[0.641s] Invoking command in '/home/matt/Documents/CSCI4551/4551_final_project/src/gesture_turtlebot': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/matt/Documents/CSCI4551/4551_final_project/build/gesture_turtlebot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/gesture_turtlebot build --build-base /home/matt/Documents/CSCI4551/4551_final_project/build/gesture_turtlebot/build install --record /home/matt/Documents/CSCI4551/4551_final_project/build/gesture_turtlebot/install.log --single-version-externally-managed install_data
+[0.829s] running egg_info
+[0.829s] creating ../../build/gesture_turtlebot/gesture_turtlebot.egg-info
+[0.842s] writing ../../build/gesture_turtlebot/gesture_turtlebot.egg-info/PKG-INFO
+[0.842s] writing dependency_links to ../../build/gesture_turtlebot/gesture_turtlebot.egg-info/dependency_links.txt
+[0.843s] writing entry points to ../../build/gesture_turtlebot/gesture_turtlebot.egg-info/entry_points.txt
+[0.843s] writing requirements to ../../build/gesture_turtlebot/gesture_turtlebot.egg-info/requires.txt
+[0.843s] writing top-level names to ../../build/gesture_turtlebot/gesture_turtlebot.egg-info/top_level.txt
+[0.843s] writing manifest file '../../build/gesture_turtlebot/gesture_turtlebot.egg-info/SOURCES.txt'
+[0.869s] reading manifest file '../../build/gesture_turtlebot/gesture_turtlebot.egg-info/SOURCES.txt'
+[0.870s] writing manifest file '../../build/gesture_turtlebot/gesture_turtlebot.egg-info/SOURCES.txt'
+[0.870s] running build
+[0.870s] running build_py
+[0.870s] creating /home/matt/Documents/CSCI4551/4551_final_project/build/gesture_turtlebot/build
+[0.870s] creating /home/matt/Documents/CSCI4551/4551_final_project/build/gesture_turtlebot/build/lib
+[0.870s] creating /home/matt/Documents/CSCI4551/4551_final_project/build/gesture_turtlebot/build/lib/gesture_turtlebot
+[0.870s] copying gesture_turtlebot/gesture_recognition.py -> /home/matt/Documents/CSCI4551/4551_final_project/build/gesture_turtlebot/build/lib/gesture_turtlebot
+[0.870s] copying gesture_turtlebot/gesture_to_cmd.py -> /home/matt/Documents/CSCI4551/4551_final_project/build/gesture_turtlebot/build/lib/gesture_turtlebot
+[0.870s] copying gesture_turtlebot/spawn_controller.py -> /home/matt/Documents/CSCI4551/4551_final_project/build/gesture_turtlebot/build/lib/gesture_turtlebot
+[0.871s] copying gesture_turtlebot/__init__.py -> /home/matt/Documents/CSCI4551/4551_final_project/build/gesture_turtlebot/build/lib/gesture_turtlebot
+[0.871s] running install
+[0.875s] running install_lib
+[0.888s] creating /home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/lib/python3.12/site-packages/gesture_turtlebot
+[0.888s] copying /home/matt/Documents/CSCI4551/4551_final_project/build/gesture_turtlebot/build/lib/gesture_turtlebot/gesture_recognition.py -> /home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/lib/python3.12/site-packages/gesture_turtlebot
+[0.888s] copying /home/matt/Documents/CSCI4551/4551_final_project/build/gesture_turtlebot/build/lib/gesture_turtlebot/gesture_to_cmd.py -> /home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/lib/python3.12/site-packages/gesture_turtlebot
+[0.888s] copying /home/matt/Documents/CSCI4551/4551_final_project/build/gesture_turtlebot/build/lib/gesture_turtlebot/spawn_controller.py -> /home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/lib/python3.12/site-packages/gesture_turtlebot
+[0.888s] copying /home/matt/Documents/CSCI4551/4551_final_project/build/gesture_turtlebot/build/lib/gesture_turtlebot/__init__.py -> /home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/lib/python3.12/site-packages/gesture_turtlebot
+[0.889s] byte-compiling /home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/lib/python3.12/site-packages/gesture_turtlebot/gesture_recognition.py to gesture_recognition.cpython-312.pyc
+[0.890s] byte-compiling /home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/lib/python3.12/site-packages/gesture_turtlebot/gesture_to_cmd.py to gesture_to_cmd.cpython-312.pyc
+[0.890s] byte-compiling /home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/lib/python3.12/site-packages/gesture_turtlebot/spawn_controller.py to spawn_controller.cpython-312.pyc
+[0.890s] byte-compiling /home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/lib/python3.12/site-packages/gesture_turtlebot/__init__.py to __init__.cpython-312.pyc
+[0.891s] running install_data
+[0.891s] creating /home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/share/ament_index
+[0.891s] creating /home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/share/ament_index/resource_index
+[0.891s] creating /home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/share/ament_index/resource_index/packages
+[0.891s] copying resource/gesture_turtlebot -> /home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/share/ament_index/resource_index/packages
+[0.891s] copying package.xml -> /home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/share/gesture_turtlebot
+[0.891s] running install_egg_info
+[0.906s] Copying ../../build/gesture_turtlebot/gesture_turtlebot.egg-info to /home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/lib/python3.12/site-packages/gesture_turtlebot-0.0.0-py3.12.egg-info
+[0.906s] running install_scripts
+[0.996s] Installing gesture_recognition script to /home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/lib/gesture_turtlebot
+[0.996s] Installing gesture_to_cmd script to /home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/lib/gesture_turtlebot
+[0.996s] Installing spawn_controller script to /home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/lib/gesture_turtlebot
+[0.996s] writing list of installed files to '/home/matt/Documents/CSCI4551/4551_final_project/build/gesture_turtlebot/install.log'
+[1.019s] Invoked command in '/home/matt/Documents/CSCI4551/4551_final_project/src/gesture_turtlebot' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/matt/Documents/CSCI4551/4551_final_project/build/gesture_turtlebot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/gesture_turtlebot build --build-base /home/matt/Documents/CSCI4551/4551_final_project/build/gesture_turtlebot/build install --record /home/matt/Documents/CSCI4551/4551_final_project/build/gesture_turtlebot/install.log --single-version-externally-managed install_data

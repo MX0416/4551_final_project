@@ -1,8 +1,10 @@
 /home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/lib/python3.12/site-packages/gesture_turtlebot/gesture_recognition.py
 /home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/lib/python3.12/site-packages/gesture_turtlebot/gesture_to_cmd.py
+/home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/lib/python3.12/site-packages/gesture_turtlebot/spawn_controller.py
 /home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/lib/python3.12/site-packages/gesture_turtlebot/__init__.py
 /home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/lib/python3.12/site-packages/gesture_turtlebot/__pycache__/gesture_recognition.cpython-312.pyc
 /home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/lib/python3.12/site-packages/gesture_turtlebot/__pycache__/gesture_to_cmd.cpython-312.pyc
+/home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/lib/python3.12/site-packages/gesture_turtlebot/__pycache__/spawn_controller.cpython-312.pyc
 /home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/lib/python3.12/site-packages/gesture_turtlebot/__pycache__/__init__.cpython-312.pyc
 /home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/share/ament_index/resource_index/packages/gesture_turtlebot
 /home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/share/gesture_turtlebot/package.xml
@@ -15,3 +17,4 @@
 /home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/lib/python3.12/site-packages/gesture_turtlebot-0.0.0-py3.12.egg-info/entry_points.txt
 /home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/lib/gesture_turtlebot/gesture_recognition
 /home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/lib/gesture_turtlebot/gesture_to_cmd
+/home/matt/Documents/CSCI4551/4551_final_project/install/gesture_turtlebot/lib/gesture_turtlebot/spawn_controller
