@@ -42,3 +42,40 @@ ros2 node list
 rm -rf build/ install/ log/
 colcon build
 source install/setup.bash
+
+
+
+# Project iteration 2, remove SLAM
+# Terminal 1
+source /opt/ros/jazzy/setup.bash
+source install/setup.bash
+ros2 launch  turtlebot3_gazebo turtlebot3_house.launch.py 
+
+# Terminal 2
+colcon build --packages-select gesture_turtlebot
+source install/setup.bash
+ros2 run gesture_turtlebot gesture_recognition
+
+# Terminal 3
+source install/setup.bash
+ros2 run gesture_turtlebot gesture_to_cmd
+
+# Terminal 4 Spawn Controller
+source /opt/ros/jazzy/setup.bash
+source install/setup.bash
+ros2 run gesture_turtlebot spawn_controller
+
+
+
+# To rebuild everything and start in a clean slate
+cd ~/Documents/CSCI4551/4551_final_project/
+pkill -f ros2
+pkill -f gazebo
+pkill -f gzserver
+pkill -f gzclient
+pkill -f rviz2
+sleep 2
+ros2 node list
+rm -rf build/ install/ log/
+colcon build
+source install/setup.bash
