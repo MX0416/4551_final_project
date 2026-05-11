@@ -1,7 +1,6 @@
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
-from nav_msgs.msg import Odometry
 import subprocess
 
 
@@ -14,21 +13,12 @@ class SpawnControllerNode(Node):
             self.gesture_callback,
             10
         )
-        self.odom_subscription = self.create_subscription(
-            Odometry,
-            '/odom',
-            self.odom_callback,
-            10
-        )
         self.tb2_spawned = False
         self.last_spawn_attempt = 0.0
-        self.tb1_x = -2.0
-        self.tb1_y = -0.5
+        # TB1 default spawn point from turtlebot3_house.launch.py
+        self.spawn_x = -2.0
+        self.spawn_y = -0.5
         self.get_logger().info('Spawn controller node started')
-
-    def odom_callback(self, msg):
-        self.tb1_x = msg.pose.pose.position.x
-        self.tb1_y = msg.pose.pose.position.y
 
     def gesture_callback(self, msg):
         if msg.data == 'SPAWN_TB2' and not self.tb2_spawned:
@@ -39,9 +29,9 @@ class SpawnControllerNode(Node):
                 self.spawn_tb2()
 
     def spawn_tb2(self):
-        x = self.tb1_x
-        y = self.tb1_y
-        self.get_logger().info(f'Spawning TB2 at TB1 position: x={x:.2f}, y={y:.2f}')
+        x = self.spawn_x
+        y = self.spawn_y
+        self.get_logger().info(f'Spawning TB2 at original spawn point: x={x}, y={y}')
 
         cmd = [
             'gz', 'service',

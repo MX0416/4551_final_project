@@ -15,21 +15,16 @@ class GestureRecognitionNode(Node):
         self.publisher = self.create_publisher(String, '/gesture', 10)
         self.timer = self.create_timer(0.1, self.process_frame)
 
-        # OpenCV webcam
+        # openCV
         self.cap = cv2.VideoCapture(0)
-
-        # Download the hand landmark model if not present
         model_path = os.path.expanduser('~/.mediapipe/hand_landmarker.task')
         os.makedirs(os.path.dirname(model_path), exist_ok=True)
         if not os.path.exists(model_path):
-            self.get_logger().info('Downloading hand landmarker model...')
+            # this is to download the hand landmarker model from mediapopipe
             urllib.request.urlretrieve(
                 'https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/latest/hand_landmarker.task',
                 model_path
             )
-            self.get_logger().info('Model downloaded.')
-
-        # Set up HandLandmarker
         options = HandLandmarkerOptions(
             base_options=python.BaseOptions(model_asset_path=model_path),
             running_mode=RunningMode.IMAGE,
@@ -49,13 +44,13 @@ class GestureRecognitionNode(Node):
         count = sum(fingers_up)
 
         if count == 0:
-            return 'FORWARD'        # fist
+            return 'FORWARD'        
         elif count == 4:
-            return 'STOP'           # open palm
+            return 'STOP'           
         elif fingers_up[0] and not any(fingers_up[1:]):
-            return 'TURN_LEFT'      # index only
+            return 'TURN_LEFT'     
         elif fingers_up[0] and fingers_up[1] and not any(fingers_up[2:]):
-            return 'TURN_RIGHT'     # peace sign
+            return 'TURN_RIGHT'     
         else:
             return 'STOP'
 
@@ -84,7 +79,7 @@ class GestureRecognitionNode(Node):
                 if sum(fingers_up) == 4:
                     open_palm_count += 1
 
-                # Only classify gesture from right hand (mirrored = 'Left')
+                # Only classify gesture from right hand
                 if label == 'Left':
                     gesture = self.classify_gesture(hand_landmarks)
 

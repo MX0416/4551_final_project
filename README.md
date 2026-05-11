@@ -5,6 +5,10 @@
 4. A special hand gesture to spawn a second turtlebot at the first turtlebot's starting location
 5. Autonomously navigate the second turtlebot to the first turtlebox using the SLAM constructed map built by the first turtlebot
 
+### How to run
+
+The instructions to run the project is in commands.sh.
+
 
 
 Project structure:
